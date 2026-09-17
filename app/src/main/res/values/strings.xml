@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">fitpulse</string>
+    <string name="login_title">User Login</string>
+    <string name="user_icon_desc">User Icon</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="signup_prompt">Don\'t have an account? Sign Up</string>
+</resources>
