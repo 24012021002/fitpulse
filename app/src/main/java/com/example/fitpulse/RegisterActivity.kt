@@ -11,32 +11,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
-        
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.login_main)) { v, insets ->
+        setContentView(R.layout.activity_register)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.register_main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val etUsername = findViewById<EditText>(R.id.et_username)
-        val etPassword = findViewById<EditText>(R.id.et_password)
-        val btnLogin = findViewById<Button>(R.id.btn_login)
-        val tvForgotPassword = findViewById<TextView>(R.id.tv_forgot_password)
-        val tvRegister = findViewById<TextView>(R.id.tv_register)
+        val etName = findViewById<EditText>(R.id.et_register_name)
+        val etEmail = findViewById<EditText>(R.id.et_register_email)
+        val etPassword = findViewById<EditText>(R.id.et_register_password)
+        val btnRegister = findViewById<Button>(R.id.btn_register)
+        val tvBackToLogin = findViewById<TextView>(R.id.tv_back_to_login)
 
-        btnLogin.setOnClickListener {
-            val username = etUsername.text.toString()
+        btnRegister.setOnClickListener {
+            val name = etName.text.toString()
+            val email = etEmail.text.toString()
             val password = etPassword.text.toString()
 
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                // For now, just navigate to MainActivity
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -45,13 +44,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        tvForgotPassword.setOnClickListener {
-            Toast.makeText(this, "Forgot Password clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        tvRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+        tvBackToLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
