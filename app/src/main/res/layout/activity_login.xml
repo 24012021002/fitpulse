@@ -62,13 +62,13 @@
                 android:layout_height="60dp"
                 android:background="@drawable/bg_input_field"
                 android:backgroundTint="#F1F3F5"
-                android:hint="@string/username_hint"
-                android:inputType="textPersonName"
+                android:hint="@string/email_hint"
+                android:inputType="textEmailAddress"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
                 android:textColor="@color/text_main"
                 android:textColorHint="@color/text_hint"
-                android:autofillHints="username" />
+                android:autofillHints="emailAddress" />
 
             <EditText
                 android:id="@+id/et_password"

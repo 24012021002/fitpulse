@@ -26,8 +26,11 @@ class NameActivity : AppCompatActivity() {
         val btnContinue = findViewById<Button>(R.id.btn_continue)
 
         btnContinue.setOnClickListener {
-            val name = etName.text.toString()
+            val name = etName.text.toString().trim()
             if (name.isNotEmpty()) {
+                val sharedPref = getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+                sharedPref.edit().putString("NAME", name).apply()
+
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("USER_NAME", name)
                 startActivity(intent)

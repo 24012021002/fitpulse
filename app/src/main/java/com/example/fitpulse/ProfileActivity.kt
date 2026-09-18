@@ -1,6 +1,7 @@
 package com.example.fitpulse
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,6 +10,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -35,6 +37,7 @@ class ProfileActivity : AppCompatActivity() {
         val etWeight = findViewById<EditText>(R.id.et_profile_weight)
         val rgGender = findViewById<RadioGroup>(R.id.rg_gender)
         val btnSave = findViewById<Button>(R.id.btn_save_profile)
+        val btnLogout = findViewById<Button>(R.id.btn_logout)
 
         // Load saved profile data
         val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
@@ -75,6 +78,25 @@ class ProfileActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log Out") { _, _ ->
+                    with(sharedPref.edit()) {
+                        putBoolean("IS_LOGGED_IN", false)
+                        apply()
+                    }
+                    val intent = Intent(this, LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
     }
 }
