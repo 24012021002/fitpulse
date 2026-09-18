@@ -25,7 +25,28 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".NameActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BmiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KcalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WaterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutritionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MuscleBuildingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeightLossActivity"
             android:exported="false" />
     </application>
 

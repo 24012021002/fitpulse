@@ -2,8 +2,34 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- New Health Tracker Theme Colors -->
+    <color name="bg_light">#F8F9FD</color>
+    <color name="text_main">#1E293B</color>
+    <color name="text_hint">#94A3B8</color>
+
+    <!-- Card Gradients -->
+    <color name="green_start">#4ADE80</color>
+    <color name="green_end">#22C55E</color>
+    <color name="blue_start">#60A5FA</color>
+    <color name="blue_end">#3B82F6</color>
+    <color name="purple_start">#A78BFA</color>
+    <color name="purple_end">#8B5CF6</color>
+    <color name="red_start">#F87171</color>
+    <color name="red_end">#EF4444</color>
+
     <color name="login_bg_start">#B2EBF2</color>
     <color name="login_bg_end">#81D4FA</color>
     <color name="dark_blue_text">#004D7A</color>
     <color name="hint_color">#9E9E9E</color>
+
+    <!-- Accent Colors from previous theme -->
+    <color name="health_bg">#F5F7FA</color>
+    <color name="text_primary">#2D3436</color>
+    <color name="text_secondary">#636E72</color>
+    <color name="accent_red">#FF7675</color>
+    <color name="accent_blue">#74B9FF</color>
+    <color name="accent_green">#55E6C1</color>
+    <color name="accent_orange">#FAB1A0</color>
+    <color name="accent_yellow">#FFEAA7</color>
 </resources>

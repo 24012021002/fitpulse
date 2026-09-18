@@ -12,4 +12,17 @@
     <string name="name_hint">Full Name</string>
     <string name="register_button">Get Started</string>
     <string name="back_to_login">Already have an account? Login</string>
+    <string name="home_title">FitPulse Dashboard</string>
+    <string name="bmi_calc">BMI Calculator</string>
+    <string name="kcal_calc">Kcal Calculator</string>
+    <string name="water_calc">Water Intake</string>
+    <string name="nutrition_info">Nutrition Needs</string>
+    <string name="calculate">Calculate</string>
+    <string name="weight_hint">Weight (kg)</string>
+    <string name="height_hint">Height (cm)</string>
+    <string name="age_hint">Age</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="welcome_user">Welcome!</string>
+    <string name="enter_name_instruction">Please enter your name to continue</string>
+    <string name="continue_button">Continue</string>
 </resources>

@@ -2,42 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/register_main"
+    android:id="@+id/bmi_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_light"
-    tools:context=".RegisterActivity">
+    tools:context=".BmiActivity">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_register_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        android:background="#E2E8F0"
-        android:contentDescription="@string/user_icon_desc"
-        android:padding="20dp"
-        android:src="@drawable/ic_person"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/btn_back_arrow"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="12dp"
+        android:src="@drawable/ic_back_arrow"
+        android:contentDescription="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/CircleImage"
-        app:tint="@color/blue_end" />
+        app:tint="@color/text_main" />
 
     <TextView
-        android:id="@+id/tv_register_title"
+        android:id="@+id/tv_bmi_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/register_title"
+        android:text="@string/bmi_calc"
         android:textColor="@color/text_main"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_register_icon" />
+        app:layout_constraintTop_toBottomOf="@id/btn_back_arrow" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_register"
+        android:id="@+id/card_bmi_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -47,7 +48,7 @@
         app:strokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_register_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_bmi_title"
         app:layout_constraintWidth_percent="0.9">
 
         <LinearLayout
@@ -57,58 +58,42 @@
             android:padding="24dp">
 
             <EditText
-                android:id="@+id/et_register_name"
+                android:id="@+id/et_bmi_weight"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:autofillHints="name"
                 android:background="@drawable/bg_input_field"
                 android:backgroundTint="#F1F3F5"
-                android:hint="@string/name_hint"
-                android:inputType="textPersonName"
+                android:hint="@string/weight_hint"
+                android:inputType="numberDecimal"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
                 android:textColor="@color/text_main"
-                android:textColorHint="@color/text_hint" />
+                android:textColorHint="@color/text_hint"
+                android:autofillHints="none" />
 
             <EditText
-                android:id="@+id/et_register_email"
+                android:id="@+id/et_bmi_height"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="16dp"
-                android:autofillHints="emailAddress"
                 android:background="@drawable/bg_input_field"
                 android:backgroundTint="#F1F3F5"
-                android:hint="@string/email_hint"
-                android:inputType="textEmailAddress"
+                android:hint="@string/height_hint"
+                android:inputType="numberDecimal"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
                 android:textColor="@color/text_main"
-                android:textColorHint="@color/text_hint" />
-
-            <EditText
-                android:id="@+id/et_register_password"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:autofillHints="password"
-                android:background="@drawable/bg_input_field"
-                android:backgroundTint="#F1F3F5"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp"
-                android:textColor="@color/text_main"
-                android:textColorHint="@color/text_hint" />
+                android:textColorHint="@color/text_hint"
+                android:autofillHints="none" />
 
             <Button
-                android:id="@+id/btn_register"
+                android:id="@+id/btn_calculate_bmi"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="24dp"
-                android:backgroundTint="@color/blue_end"
-                android:text="@string/register_button"
+                android:backgroundTint="@color/green_end"
+                android:text="@string/calculate"
                 android:textColor="@color/white"
-                android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
                 app:cornerRadius="16dp" />
 
@@ -116,15 +101,16 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/tv_back_to_login"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_bmi_result"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/back_to_login"
-        android:textColor="@color/blue_end"
+        android:gravity="center"
+        android:textColor="@color/text_main"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_register" />
+        app:layout_constraintEnd_toEndOf="@id/card_bmi_input"
+        app:layout_constraintStart_toStartOf="@id/card_bmi_input"
+        app:layout_constraintTop_toBottomOf="@id/card_bmi_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

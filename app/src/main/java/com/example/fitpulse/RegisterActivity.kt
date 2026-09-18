@@ -35,8 +35,8 @@ class RegisterActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
+                Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, NameActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

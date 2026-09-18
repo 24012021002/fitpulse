@@ -35,9 +35,9 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                // For now, just navigate to MainActivity
+                // Navigate to NameActivity
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, NameActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

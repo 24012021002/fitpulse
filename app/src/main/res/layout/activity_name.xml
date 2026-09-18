@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/login_main"
+    android:id="@+id/name_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_light"
-    tools:context=".LoginActivity">
+    tools:context=".NameActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_user_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/iv_name_icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="100dp"
         android:background="#E2E8F0"
         android:contentDescription="@string/user_icon_desc"
@@ -24,20 +24,32 @@
         app:tint="@color/blue_end" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="FitPulse"
+        android:text="@string/welcome_user"
         android:textColor="@color/text_main"
         android:textSize="32sp"
         android:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_user_icon" />
+        app:layout_constraintTop_toBottomOf="@id/iv_name_icon" />
+
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/enter_name_instruction"
+        android:textColor="@color/text_hint"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_login"
+        android:id="@+id/card_name_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -47,7 +59,7 @@
         app:strokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_instruction"
         app:layout_constraintWidth_percent="0.9">
 
         <LinearLayout
@@ -57,41 +69,26 @@
             android:padding="24dp">
 
             <EditText
-                android:id="@+id/et_username"
+                android:id="@+id/et_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bg_input_field"
                 android:backgroundTint="#F1F3F5"
-                android:hint="@string/username_hint"
+                android:hint="@string/name_hint"
                 android:inputType="textPersonName"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
                 android:textColor="@color/text_main"
                 android:textColorHint="@color/text_hint"
-                android:autofillHints="username" />
-
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_input_field"
-                android:backgroundTint="#F1F3F5"
-                android:hint="@string/password_hint"
-                android:inputType="textPassword"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp"
-                android:textColor="@color/text_main"
-                android:textColorHint="@color/text_hint"
-                android:autofillHints="password" />
+                android:autofillHints="name" />
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_continue"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="@color/blue_end"
-                android:text="@string/login_button"
+                android:text="@string/continue_button"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
@@ -99,29 +96,5 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/forgot_password"
-        android:textColor="@color/text_hint"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_login" />
-
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/signup_prompt"
-        android:textColor="@color/blue_end"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
