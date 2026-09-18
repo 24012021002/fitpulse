@@ -59,6 +59,26 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.iv_profile_icon).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
+
+        findViewById<ImageView>(R.id.iv_logout).setOnClickListener {
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log Out") { _, _ ->
+                    val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        putBoolean("IS_LOGGED_IN", false)
+                        apply()
+                    }
+                    val intent = Intent(this, LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
     }
 
     override fun onResume() {

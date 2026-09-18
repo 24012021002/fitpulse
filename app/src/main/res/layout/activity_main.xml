@@ -55,11 +55,16 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_back_arrow"
-            android:rotation="90"
-            app:tint="@color/text_main" />
+            android:id="@+id/iv_logout"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_logout"
+            android:padding="3dp"
+            android:contentDescription="Log Out"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/red_end" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
