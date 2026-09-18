@@ -1,7 +1,9 @@
 package com.example.fitpulse
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +20,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val userName = intent.getStringExtra("USER_NAME") ?: "User"
-        findViewById<TextView>(R.id.tv_greeting).text = "Hello, $userName"
+        updateGreeting()
 
         val sdf = SimpleDateFormat("MMM, dd yyyy", Locale.getDefault())
         val currentDate = sdf.format(Calendar.getInstance().time)
@@ -54,5 +55,20 @@ class MainActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.card_weight_loss).setOnClickListener {
             startActivity(Intent(this, WeightLossActivity::class.java))
         }
+
+        findViewById<ImageView>(R.id.iv_profile_icon).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateGreeting()
+    }
+
+    private fun updateGreeting() {
+        val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val userName = sharedPref.getString("NAME", "User")
+        findViewById<TextView>(R.id.tv_greeting).text = "Hello, $userName"
     }
 }

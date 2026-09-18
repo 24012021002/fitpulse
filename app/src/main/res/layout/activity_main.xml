@@ -19,11 +19,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_profile_icon"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/ic_person"
             android:padding="8dp"
             android:background="#E2E8F0"
+            android:clickable="true"
+            android:focusable="true"
             app:shapeAppearanceOverlay="@style/CircleImage" />
 
         <LinearLayout
